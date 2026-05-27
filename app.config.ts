@@ -1,14 +1,9 @@
 import type { ConfigContext, ExpoConfig } from 'expo/config';
-import * as dotenv from 'dotenv';
-import * as path from 'path';
 
-// APP_ENV based on eas profile or manual flag
 const APP_ENV = process.env.APP_ENV ?? 'development';
 
-// load correct .env file
-dotenv.config({
-    path: path.resolve(__dirname, `.env.${APP_ENV}`),
-});
+console.log('APP_ENV:', APP_ENV);
+console.log('EXPO_PUBLIC_APP_ENV:', process.env.EXPO_PUBLIC_APP_ENV);
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
     ...config,
